@@ -16,7 +16,7 @@ each([1, 2, 3]) { |num| "do nothing" }                           # still returns
 puts "# => #{rtnval}"
 
 rtnval =
-each([1, 2, 3]) {|num| "do nothing"}.select{ |num| num.odd? }    # => [1, 3]
+each([1, 2, 3]) { |num| "do nothing" }.select{ |num| num.odd? }  # => [1, 3]
 puts "# => #{rtnval}"
 
 rtnval =

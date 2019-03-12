@@ -124,16 +124,27 @@ class TodoList
 
   def each
     arr = @todos
-    # ndx = 0
-    # while ndx < arr.size
-    #   yield(arr[ndx])
-    #   ndx += 1
-    # end
     arr.each do |todo| # use Array#each
       yield(todo)
     end
-    # arr # rtn an arr of Todo objs
     self # rtn a TodoList obj
+  end
+
+  # def select
+  #   new_arr = []
+  #   self.each do |todo| # don't need to use 'self.each' here (just use 'each')
+  #     new_arr << todo if yield(todo)
+  #   end
+  #   new_arr # rtn an arr of Todo objs
+  # end
+
+  def select
+    # new_list = TodoList.new("Selected Todos")
+    new_list = TodoList.new(title) # should probably keep the original title
+    self.each do |todo| # don't need to use 'self.each' here (just use 'each')
+      new_list.add(todo) if yield(todo)
+    end
+    new_list # rtn a TodoList obj
   end
 end
 
@@ -146,11 +157,22 @@ list = TodoList.new("Today's Todos")
 list.add(todo1)
 list.add(todo2)
 list.add(todo3)
+todo1.done!
 
 list.each do |todo|
   puts todo                   # calls Todo#to_s
 end
 
-# [ ] Buy milk
+# [X] Buy milk
 # [ ] Clean room
 # [ ] Go to gym
+
+# results = list.select { |todo| todo.done? }
+# puts results.inspect
+p list.select { |todo| todo.done? }
+
+# when we rtn an arr of Todo objs, we get
+# [#<Todo:0x007fd88c0ad9f0 @title="Buy milk", @description="", @done=true>]
+
+# when we rtn a TodoList obj, we get
+#<TodoList:0x0000000001ab7ad8 @title="Selected Todos", @todos=[#<Todo:0x0000000001ab7e48 @title="Buy milk", @description="", @done=true>]>

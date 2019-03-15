@@ -12,8 +12,8 @@ def any?(arr)
   false
 end
 
-def none?(arr, &blk)
-  !any?(arr, &blk)
+def none?(arr, &blk) # explicity reqs a blk and converts it to a Proc obj
+  !any?(arr, &blk) # takes a Proc obj as an arg and converts it to a blk
 end
 
 p none?([1, 3, 5, 6]) { |value| value.even? } == false

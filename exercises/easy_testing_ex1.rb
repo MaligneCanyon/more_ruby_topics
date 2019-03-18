@@ -1,3 +1,8 @@
-Write a minitest assertion that will fail if the value.odd? is not true.
+require 'minitest/autorun'
 
-assert value.odd?, "value is not odd"
+class Test_Class < MiniTest::Test
+  def test_value
+    value = 3
+    assert(value.odd?, "value is not odd")
+  end
+end

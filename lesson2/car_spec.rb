@@ -1,3 +1,5 @@
+# car_spec.rb (spec-flavoured Minitest)
+
 require 'minitest/autorun'
 
 require_relative 'car'

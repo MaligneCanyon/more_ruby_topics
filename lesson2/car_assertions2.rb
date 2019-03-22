@@ -21,7 +21,8 @@ class CarTest < MiniTest::Test
 
   def test_raise_initialize_with_arg
     assert_raises(ArgumentError) do
-      car = Car.new(name: "Joey")
+      # car = Car.new(name: "Joey") # we use car (not @car) here
+      Car.new(name: "Joey") # this is simpler and less confusing
     end
   end
 

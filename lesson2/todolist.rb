@@ -71,7 +71,6 @@ class TodoList
 
   def <<(todo)
     raise TypeError, 'can only add Todo objects' unless todo.instance_of? Todo
-
     @todos << todo
   end
   alias_method :add, :<<
@@ -136,7 +135,7 @@ class TodoList
     select { |todo| !todo.done? }
   end
 
-  def mark_done(title)
+  def mark_done(title) # should be named 'mark_done_by_title'
     find_by_title(title) && find_by_title(title).done!
   end
 

@@ -1,9 +1,11 @@
+# car_test.rb (assert-flavoured Minitest)
+
 # load all the necessary files from the Minitest gem
 require 'minitest/autorun'
 
 # add colour (and additional formatting) to the Minitest output
 require "minitest/reporters"
-Minitest::Reporters.use!
+Minitest::Reporters.use! # comment out to use the default output format
 
 # require the file that we're testing, car.rb, which contains the Car class
 # use require_relative to specify the file name from the current file's directory
@@ -24,12 +26,12 @@ class CarTest < MiniTest::Test
     car = Car.new
     # we then use this Car obj in our assertion to verify that newly created Car objs indeed have
     # 4 wheels
-    assert_equal(4, car.wheels)
+    assert_equal(4, car.wheels) # assert_equal is an inherited instance method
   end
 
   def test_bad_wheels # designed to fail
     skip "skipping test_bad_wheels" # skips the test; msg is optional
     car = Car.new
-    asserts_equal(3, car.wheels)
+    assert_equal(3, car.wheels)
   end
 end

@@ -16,7 +16,7 @@
 # - init a new_arr to []
 # - arr1.size times (ndx)
 #   - add the nth elem from the input arrs to a sub_arr
-#   - add the sub_elem to the new_arr
+#   - add the sub_arr to the new_arr
 # - rtn the new_arr
 
 # def zip(arr1, arr2)

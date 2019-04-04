@@ -1,5 +1,5 @@
 def call_me(some_code)
-  some_code.call            # call will execute the "chunk of code" that gets passed in
+  some_code.call # call will execute the "chunk of code" that gets passed in
 end
 
 name = "Robert"

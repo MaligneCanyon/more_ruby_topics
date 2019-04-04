@@ -1,7 +1,7 @@
 def each_cons(arr, n)
   ndx = 0
   while ndx < arr.size - (n - 1)
-    yield(*arr[ndx...(ndx + n)])
+    yield(*arr[ndx...(ndx + n)]) # yields n elems at a time
     ndx += 1
   end
   nil

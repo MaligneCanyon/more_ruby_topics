@@ -8,11 +8,7 @@
 
 # alt version w/o each, loop, while, or until
 def count(arr)
-  new_arr = []
-  arr.select do |elem|
-    new_arr << elem if yield(elem)
-  end
-  new_arr.size
+  arr.select { |elem| yield elem }.size
 end
 
 p count([1,2,3,4,5]) { |value| value.odd? } == 3

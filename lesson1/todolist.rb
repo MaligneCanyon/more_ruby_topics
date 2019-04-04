@@ -110,13 +110,13 @@ class TodoList
   end
 
   def mark_done_at(ndx)
-    @todos.fetch(ndx).done!
+    @todos.fetch(ndx).done! # calls the Todo#done! method
   # rescue
   #   puts "invalid ndx (#{ndx})"
   end
 
   def mark_undone_at(ndx)
-    @todos.fetch(ndx).undone!
+    @todos.fetch(ndx).undone! # calls the Todo#undone! method
   # rescue
   #   puts "invalid ndx (#{ndx})"
   end
@@ -142,8 +142,8 @@ class TodoList
 
   def to_s
     "---- #{title} ----\n" +
+    # @todos.map { |todo| todo.to_s }.join("\n") # calls the Todo#to_s method
     @todos.map(&:to_s).join("\n")
-    # @todos.map { |todo| todo.to_s }.join("\n")
   end
 end
 

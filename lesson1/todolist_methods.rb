@@ -123,8 +123,7 @@ class TodoList
   end
 
   def each
-    arr = @todos
-    arr.each do |todo| # use Array#each
+    @todos.each do |todo| # use Array#each
       yield(todo)
     end
     self # rtn a TodoList obj

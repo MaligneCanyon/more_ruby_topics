@@ -35,6 +35,6 @@ class CarTest < MiniTest::Test
     arr = [1, 2, 3]
     arr << car
 
-    assert_includes(arr, car)
+    assert_includes(arr, car) # for some reason, this counts as 2 assertions
   end
 end

@@ -18,6 +18,6 @@ end
 
 listener = Device.new
 listener.listen { "Hello World!" }
-# listener.listen { "Here's a coded message: sd&(*wer*" }
+listener.listen { "Here's a coded message: sd&(*wer*" }
 listener.listen
 listener.play # Outputs "Hello World!"

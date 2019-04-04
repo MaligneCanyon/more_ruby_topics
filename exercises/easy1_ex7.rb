@@ -1,7 +1,6 @@
 def all?(arr)
+  # return true if arr.empty? # n/r
   arr.each do |elem|
-    # next if yield(elem)
-    # return false
     return false unless yield(elem)
   end
   true

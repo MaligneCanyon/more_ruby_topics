@@ -1,3 +1,20 @@
+# inputs:
+# - arr
+# - obj
+# outputs:
+# - obj
+# reqs:
+# - iterate thru an arr, passing each elem and an obj to a blk
+# - rtn the obj
+# rules:
+# - nonw
+# struct:
+# - arr
+# algo:
+# - for each elem of the arr
+#   - yield the elem and the obj to the blk
+# - rtn the obj
+
 def each_with_object(arr, obj)
   arr.each do |elem|
     yield(elem, obj)

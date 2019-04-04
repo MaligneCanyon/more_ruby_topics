@@ -13,7 +13,7 @@ def each_with_index(arr)
     yield(elem, ndx)
     ndx += 1
   end
-  # arr # Array.each rtns the original collection
+  # Array#each rtns the original collection
 end
 
 

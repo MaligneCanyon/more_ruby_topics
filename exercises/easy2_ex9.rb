@@ -1,14 +1,20 @@
-# The Enumerable each_cons method iterates over the members of a collection taking each sequence
-# of n consecutive elements at a time and passing them to the associated block for processing. It then
-#  returns a value of nil.
-
-# Write a method called each_cons that behaves similarly for Arrays, taking the elements 2 at a time.
-# The method should take an Array as an argument, and a block. It should yield each consecutive pair of
-# lements to the block, and return nil.
-
-# Your method may use #each, #each_with_object, #each_with_index, #inject, loop, for, while, or until
-#  to iterate through the Array passed in as an argument, but must not use any other methods that
-#   iterate through an Array or any other collection.
+# inputs:
+# - arr
+# - blk
+# outputs:
+# - nil
+# reqs:
+# - iterate thru the arr, taking 2 consecutive arr elems at the time
+# - yield the elems to the blk
+# - rtn nil
+# rules:
+# - should yield arr.size - 1 elem pairs to the blk
+# algo:
+# - init an ndx to 0
+# - while the ndx is < arr.size - 1
+#   - yield the current and next arr elems to the blk
+#   - incr the ndx
+# - rtn nil
 
 def each_cons(arr)
   ndx = 0

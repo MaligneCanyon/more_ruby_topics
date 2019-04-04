@@ -4,12 +4,21 @@
 # - yielding to the blk and passing it the current arr elem
 # - saving the arr elem if the blk rtns T
 # - returning the saved arr elems in a new arr
+
+# def select(arr)
+#   new_arr = []
+#   ndx = 0
+#   while ndx < arr.size do # could use Array#each instead of a while loop
+#     new_arr << arr[ndx] if yield(arr[ndx])
+#     ndx += 1
+#   end
+#   new_arr
+# end
+
 def select(arr)
   new_arr = []
-  ndx = 0
-  while ndx < arr.size do # could use Array#each instead of a while loop
-    new_arr << arr[ndx] if yield(arr[ndx])
-    ndx += 1
+  arr.each do |elem|
+    new_arr << elem if yield(elem)
   end
   new_arr
 end

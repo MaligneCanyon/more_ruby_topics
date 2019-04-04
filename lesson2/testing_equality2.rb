@@ -5,8 +5,9 @@ class Car
     @wheels = 4
   end
 
-  def ==(other)                       # assert_equal would fail without this method
-    other.is_a?(Car) && name == other.name
+  def ==(other)               # assert_equal would fail w/o this method
+    # other.is_a?(Car) && name == other.name
+    other.instance_of?(Car) && name == other.name
   end
 end
 
@@ -18,10 +19,10 @@ class CarTest < MiniTest::Test
     car1 = Car.new
     car2 = Car.new
 
-    car1.name = "Kim"
-    car2.name = "Kim"
+    car1.name = "Kit"
+    car2.name = "Kit"
 
-    assert_equal(car1, car2)          # this will pass
-    assert_same(car1, car2)           # this will fail
+    assert_equal(car1, car2)  # this will pass
+    assert_same(car1, car2)   # this will fail
   end
 end

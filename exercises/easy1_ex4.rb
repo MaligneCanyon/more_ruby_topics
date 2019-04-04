@@ -22,14 +22,13 @@ def divisors(num)
     quot, rem = num.divmod(n)
     arr << [n, quot] if rem.zero?
   end
-  # p arr
   arr.uniq.flatten.sort
 end
 
 def time_it
   time_before = Time.now
   yield # execute the implicit block
-  time_after= Time.now
+  time_after = Time.now
   puts "It took #{time_after - time_before} seconds"
 end
 

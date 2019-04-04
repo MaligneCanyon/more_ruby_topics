@@ -14,6 +14,7 @@ class TodoListTest < MiniTest::Test
     @todo3 = Todo.new("Go to gym")
     @todos = [@todo1, @todo2, @todo3]
 
+    # setup is called for each test, so @list is always re-init'd
     @list = TodoList.new("Today's Todos")
     @list.add(@todo1)
     @list.add(@todo2)
@@ -45,7 +46,7 @@ class TodoListTest < MiniTest::Test
     assert_equal([@todo2, @todo3], @list.to_a)
   end
 
-  def test_pop # setup is called for each test, so @list has been re-init'd
+  def test_pop
     assert_equal(@todo3, @list.pop) # and ...
     assert_equal([@todo1, @todo2], @list.to_a)
   end
@@ -67,7 +68,7 @@ class TodoListTest < MiniTest::Test
   end
 
   def test_add
-    @list << @todo2
+    @list.add(@todo2)
     assert_equal([@todo1, @todo2, @todo3, @todo2], @list.to_a)
   end
 
@@ -150,12 +151,14 @@ class TodoListTest < MiniTest::Test
     @list.each { |todo| new_arr << todo }
     assert_equal([@todo1, @todo2, @todo3], new_arr)
 
+    # test the rtn value also
     # assert_equal(@list, @list.each { |todo| nil })
     assert_equal(@list, @list.each { }) # sufficient ?
   end
 
   def test_select
-    new_list = @list.select { |todo| todo.done? } # be careful to use todo#done? and not the getter todo#done
+    # be careful to use todo#done? and not the getter todo#done
+    new_list = @list.select { |todo| todo.done? }
     assert_equal(@list.title, new_list.title)
     assert_equal([], new_list.to_a)
 
@@ -186,14 +189,14 @@ class TodoListTest < MiniTest::Test
 
   # test_mark_all_done and the related test_mark_all_undone apparently have
   # no effect on CC
-  # def test_mark_all_done
-  #   @list.mark_all_done
-  #   assert(@todos.all? { |todo| todo.done? }) # this assertion was tested in #test_done!
-  # end
-  # def test_mark_all_undone
-  #   @list.mark_all_undone
-  #   assert(@todos.all? { |todo| !todo.done? })
-  # end
+  def test_mark_all_done
+    @list.mark_all_done
+    assert(@todos.all? { |todo| todo.done? }) # this assertion was tested in #test_done!
+  end
+  def test_mark_all_undone
+    @list.mark_all_undone
+    assert(@todos.all? { |todo| !todo.done? })
+  end
 
 
   # additional tests w/ no effect on CC

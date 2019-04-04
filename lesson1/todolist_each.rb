@@ -123,16 +123,15 @@ class TodoList
   end
 
   def each
-    arr = @todos
     # ndx = 0
-    # while ndx < arr.size
-    #   yield(arr[ndx])
+    # while ndx < @todos.size
+    #   yield(@todos[ndx])
     #   ndx += 1
     # end
-    arr.each do |todo| # use Array#each
+    @todos.each do |todo| # use Array#each
       yield(todo)
     end
-    # arr # rtn an arr of Todo objs
+    # @todos # rtn an arr of Todo objs
     self # rtn a TodoList obj
   end
 end

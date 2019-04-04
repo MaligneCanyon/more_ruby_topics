@@ -1,10 +1,10 @@
 def one?(arr)
-  counter = 0
+  count = 0
   arr.each do |elem|
-    counter += 1 if yield(elem)
-    return false if counter > 1
+    count += 1 if yield(elem)
+    return false if count > 1
   end
-  counter == 1 ? true : false
+  count == 1
 end
 
 p one?([1, 3, 5, 6]) { |value| value.even? }    # -> true

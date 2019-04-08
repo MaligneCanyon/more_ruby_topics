@@ -12,7 +12,7 @@ Minitest::Reporters.use! # comment out to use the default output format
 require_relative 'car'
 
 # create our test class
-# this class must subclass MiniTest::Test;
+# this class must subclass from MiniTest::Test;
 # this will allow our test class to inherit all the necessary methods for writing tests
 class CarTest < MiniTest::Test
   # w/i our test class, write tests by creating an instance method that starts with "test_";
